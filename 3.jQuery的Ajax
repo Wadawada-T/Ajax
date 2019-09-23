@@ -1,0 +1,25 @@
+1.$.get(url,[data],[fn],[type])
+Eg:
+$.get("${pageContext.request.contextPath}/AjaxServlet",{username:"Lucky",pwd:"999"},function(text){
+				alert(text);
+});
+
+
+
+2.$.post(url,[data],[fn],[type])
+Eg：
+$.post("${pageContext.request.contextPath}/AjaxServlet",{username:"Lucky",pwd:"999"},function(text){
+				alert(text);
+});
+
+
+3.$.ajax(url,[settings])
+
+$.ajax({
+   type: "POST",
+   url: "some.php",
+   data: "name=John&location=Boston",
+   success: function(msg){
+     alert( "Data Saved: " + msg );
+   }
+});
