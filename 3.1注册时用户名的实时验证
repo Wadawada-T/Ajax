@@ -1,0 +1,18 @@
+思路：
+
+    1.准备工作：数据库表记录  项目  配置文件  工具类 jar
+    
+    2.servlet service dao domain utils 相对于的包  以及相对于的文件
+    
+    3.检查reguster.jsp页面    用户名是否可用的提示隐藏，导入jQuery的核心js文件
+    
+    4.用户名输入框创建失去焦点事件，   获取输入框 的内容，  发送ajax请求到servlet
+    
+    5.servlet获取到请求参数，依赖service层，service依赖dao层   dao与数据库进行交互
+    
+    6.dao获取到返回值User，将返回值传递到service，service判断user是否为null，如果为null 代表该用户名可以用，返回一个1给servlet，反之返回一个0给servlet
+   
+   7.servlet将返回值0或者1响应给ajax，注册页面中ajax回调部分能够获取到响应结果，根据结果显示对应的是否可用提示
+   
+   
+   
