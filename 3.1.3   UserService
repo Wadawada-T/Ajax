@@ -1,0 +1,14 @@
+package com.offcn.service;
+
+import com.offcn.dao.UserDao;
+import com.offcn.domain.User;
+
+public class UserService {
+
+	public int chick(String username) throws Exception {
+		UserDao ud = new UserDao();
+		User user = ud.chick(username);
+		return user==null?1:0;
+	}
+
+}
