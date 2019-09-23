@@ -1,0 +1,59 @@
+如何去使用：
+  1.创建核新对象（XMLHttpRequest）
+  2.创建回调函数
+  3.设置请求方式，请求路径，请求的参数（是否发送异步请求）
+  4.发送请求
+  
+  
+  
+Javascript中的get方式发送的ajax请求：
+  1.创建核新对象（XMLHttpRequest）
+  var xmlhttp = new XMLHttpRequest();
+  
+  2.创建回调函数
+  xmlhttp.onreadystatechange = function(){
+    if(xmlhttp.readyState==4 && xmlhttp.status == 200){
+      alert(xmlhttp.responseText);
+    }
+  }
+  3.设置请求方式，请求路径，请求的参数（是否发送异步请求）
+  xmlhttp.open("GET","${pageContext.request.contextPath}/AjaxServlet");
+  4.发送请求
+  xmlhttp.send();
+  
+  
+  
+  Javascript中的post方式发送的ajax请求：
+
+onload = function(){
+		document.getElementById("box").onclick = function(){
+			//1、创建Ajax核心对象
+				var xmlhttp;
+				if (window.XMLHttpRequest){
+				  xmlhttp=new XMLHttpRequest();
+				}else{
+				  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+				}
+			//2、创建回调函数
+				xmlhttp.onreadystatechange = function(){
+
+					if(xmlhttp.readyState==4){
+						if(xmlhttp.status==200){
+							alert(xmlhttp.responseText);
+						}
+					} 				
+			}
+			//3、设置请求方式、请求路径、传参、是否异步
+				xmlhttp.open("POST","${pageContext.request.contextPath}/AjaxServlet");
+			//3、2添加请求头的设置
+				xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			//4、发送请求
+				xmlhttp.send("username=Tom");		
+		}	
+	}
+  
+  
+  
+ 缺点：
+    代码太繁琐，步骤多
+    浏览器的兼容问题
